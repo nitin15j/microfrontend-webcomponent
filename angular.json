@@ -28,9 +28,18 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/font-awesome/scss/font-awesome.scss",
+              "node_modules/angular-bootstrap-md/assets/scss/bootstrap/bootstrap.scss",
+              "node_modules/angular-bootstrap-md/assets/scss/mdb.scss",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/chart.js/dist/Chart.js",
+              "node_modules/hammerjs/hammer.min.js",
+              {
+                "input": "node_modules/document-register-element/build/document-register-element.js"
+              }
+            ]
           },
           "configurations": {
             "production": {
@@ -124,6 +133,496 @@
           }
         }
       }
-    }},
+    },
+    "team-movies": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/team-movies",
+      "sourceRoot": "projects/team-movies/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/team-movies",
+            "index": "projects/team-movies/src/index.html",
+            "main": "projects/team-movies/src/main.ts",
+            "polyfills": "projects/team-movies/src/polyfills.ts",
+            "tsConfig": "projects/team-movies/tsconfig.app.json",
+            "aot": false,
+            "assets": [
+              "projects/team-movies/src/favicon.ico",
+              "projects/team-movies/src/assets"
+            ],
+            "styles": [
+              "projects/team-movies/src/styles.scss"
+            ],
+            "scripts": [
+            ]
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/team-movies/src/environments/environment.ts",
+                  "with": "projects/team-movies/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "team-movies:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "team-movies:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "team-movies:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/team-movies/src/test.ts",
+            "polyfills": "projects/team-movies/src/polyfills.ts",
+            "tsConfig": "projects/team-movies/tsconfig.spec.json",
+            "karmaConfig": "projects/team-movies/karma.conf.js",
+            "assets": [
+              "projects/team-movies/src/favicon.ico",
+              "projects/team-movies/src/assets"
+            ],
+            "styles": [
+              "projects/team-movies/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/team-movies/tsconfig.app.json",
+              "projects/team-movies/tsconfig.spec.json",
+              "projects/team-movies/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/team-movies/e2e/protractor.conf.js",
+            "devServerTarget": "team-movies:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "team-movies:serve:production"
+            }
+          }
+        }
+      }
+    },
+    "team-books": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/team-books",
+      "sourceRoot": "projects/team-books/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/team-books",
+            "index": "projects/team-books/src/index.html",
+            "main": "projects/team-books/src/main.ts",
+            "polyfills": "projects/team-books/src/polyfills.ts",
+            "tsConfig": "projects/team-books/tsconfig.app.json",
+            "aot": false,
+            "assets": [
+              "projects/team-books/src/favicon.ico",
+              "projects/team-books/src/assets"
+            ],
+            "styles": [
+              "projects/team-books/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/team-books/src/environments/environment.ts",
+                  "with": "projects/team-books/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "team-books:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "team-books:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "team-books:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/team-books/src/test.ts",
+            "polyfills": "projects/team-books/src/polyfills.ts",
+            "tsConfig": "projects/team-books/tsconfig.spec.json",
+            "karmaConfig": "projects/team-books/karma.conf.js",
+            "assets": [
+              "projects/team-books/src/favicon.ico",
+              "projects/team-books/src/assets"
+            ],
+            "styles": [
+              "projects/team-books/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/team-books/tsconfig.app.json",
+              "projects/team-books/tsconfig.spec.json",
+              "projects/team-books/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/team-books/e2e/protractor.conf.js",
+            "devServerTarget": "team-books:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "team-books:serve:production"
+            }
+          }
+        }
+      }
+    },
+    "team-shopping-cart": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/team-shopping-cart",
+      "sourceRoot": "projects/team-shopping-cart/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/team-shopping-cart",
+            "index": "projects/team-shopping-cart/src/index.html",
+            "main": "projects/team-shopping-cart/src/main.ts",
+            "polyfills": "projects/team-shopping-cart/src/polyfills.ts",
+            "tsConfig": "projects/team-shopping-cart/tsconfig.app.json",
+            "aot": false,
+            "assets": [
+              "projects/team-shopping-cart/src/favicon.ico",
+              "projects/team-shopping-cart/src/assets"
+            ],
+            "styles": [
+              "projects/team-shopping-cart/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/team-shopping-cart/src/environments/environment.ts",
+                  "with": "projects/team-shopping-cart/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "team-shopping-cart:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "team-shopping-cart:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "team-shopping-cart:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/team-shopping-cart/src/test.ts",
+            "polyfills": "projects/team-shopping-cart/src/polyfills.ts",
+            "tsConfig": "projects/team-shopping-cart/tsconfig.spec.json",
+            "karmaConfig": "projects/team-shopping-cart/karma.conf.js",
+            "assets": [
+              "projects/team-shopping-cart/src/favicon.ico",
+              "projects/team-shopping-cart/src/assets"
+            ],
+            "styles": [
+              "projects/team-shopping-cart/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/team-shopping-cart/tsconfig.app.json",
+              "projects/team-shopping-cart/tsconfig.spec.json",
+              "projects/team-shopping-cart/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/team-shopping-cart/e2e/protractor.conf.js",
+            "devServerTarget": "team-shopping-cart:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "team-shopping-cart:serve:production"
+            }
+          }
+        }
+      }
+    },
+    "team-home": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/team-home",
+      "sourceRoot": "projects/team-home/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/team-home",
+            "index": "projects/team-home/src/index.html",
+            "main": "projects/team-home/src/main.ts",
+            "polyfills": "projects/team-home/src/polyfills.ts",
+            "tsConfig": "projects/team-home/tsconfig.app.json",
+            "aot": false,
+            "assets": [
+              "projects/team-home/src/favicon.ico",
+              "projects/team-home/src/assets"
+            ],
+            "styles": [
+              "projects/team-home/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/team-home/src/environments/environment.ts",
+                  "with": "projects/team-home/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "team-home:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "team-home:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "team-home:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/team-home/src/test.ts",
+            "polyfills": "projects/team-home/src/polyfills.ts",
+            "tsConfig": "projects/team-home/tsconfig.spec.json",
+            "karmaConfig": "projects/team-home/karma.conf.js",
+            "assets": [
+              "projects/team-home/src/favicon.ico",
+              "projects/team-home/src/assets"
+            ],
+            "styles": [
+              "projects/team-home/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/team-home/tsconfig.app.json",
+              "projects/team-home/tsconfig.spec.json",
+              "projects/team-home/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/team-home/e2e/protractor.conf.js",
+            "devServerTarget": "team-home:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "team-home:serve:production"
+            }
+          }
+        }
+      }
+    }
+  },
   "defaultProject": "microfrontend-webcomponent"
 }

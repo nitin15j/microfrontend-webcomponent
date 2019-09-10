@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="row">
+      <div class="col-md-3" *ngFor="let book of bookList" style="padding-bottom:20px">
+        <section class="cards">
+          <app-bookcard 
+            [book]="book" (message)="addBookToCart($event)"></app-bookcard>
+        </section>
+    </div>
+  </div>
+</div>

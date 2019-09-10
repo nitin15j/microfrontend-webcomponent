@@ -1,0 +1,13 @@
+.main-area {
+  margin: 5%;
+}
+
+.cards {
+  display: grid;
+  padding: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 2fr));
+  grid-gap: 1rem;
+}
+.nav-bar-header {
+  background: #ffcfd2;
+}
