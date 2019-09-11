@@ -27,6 +27,7 @@ export class MovieListingComponent implements OnInit {
 
       data.movies.map(index => {
         index.rating = Math.floor(Math.random() * 10 + 1);
+        index.price = Math.floor(Math.random() * 1000 + 100);
       });
 
       this.movieList = data.movies;

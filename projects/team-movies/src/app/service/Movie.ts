@@ -10,6 +10,7 @@ export interface Movie {
   imdbRating: string;
   storyline: string;
   year: number;
+  price: number;
   plot_keywords: Array<string>;
   posterurl: string;
 }

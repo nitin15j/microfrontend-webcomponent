@@ -8,7 +8,7 @@ import { Subscription } from 'rxjs';
 })
 export class CartComponent implements OnInit, OnDestroy {
 	showDataNotFound = true;
-	cartItems:Array<string> = [];
+	cartItems:Array<any> = [];
 	subscription:Subscription;
 	// Not Found Message
 	messageTitle = 'No Products Found in Cart';
@@ -19,10 +19,16 @@ export class CartComponent implements OnInit, OnDestroy {
 	ngOnInit() {
 	//this.cartItems.push('movie1:10');
 	//this.cartItems.push('movie2:20');
-		this.cartItems = this.eventEmiter.cart; 
+	let marshlledCard = this.eventEmiter.cart.map(item => {
+		const tempData = item.split("||");
+		return {imageUrl:tempData[0], title:tempData[1], price:tempData[2]};
+	})
+		this.cartItems = marshlledCard; 
 		
 		this.subscription = this.eventEmiter.data.subscribe(data => {
-			this.cartItems.push(data);
+			const tempData = data.split("||");
+			const vo = {imageUrl:tempData[0], title:tempData[1], price:tempData[2]};
+ 			this.cartItems.push(vo);
 			let cloneCartItems = this.cartItems.slice(0);
 			this.cartItems = cloneCartItems;
 			//alert('Msg from Project a/b ' + data);

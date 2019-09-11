@@ -16,22 +16,26 @@ export class AppComponent {
     "team-home": {
       loaded: false,
       path: 'team-home/home.js',
-      element: 'team-home'
+      element: 'team-home',
+      recivers:[]
     },
     "team-movies": {
       loaded: false,
       path: 'team-movies/movies.js',
-      element: 'team-movies'
+      element: 'team-movies',
+      recivers:['team-shopping-cart']
     },
     "team-books": {
       loaded: false,
       path: 'team-books/books.js',
-      element: 'team-books'
+      element: 'team-books',
+      recivers:['team-shopping-cart']
     },
     "team-shopping-cart": {
       loaded: false,
       path: 'team-shopping-cart/shopping-cart.js',
-      element: 'team-shopping-cart'
+      element: 'team-shopping-cart',
+      recivers:[]
     },
     
   };
@@ -64,14 +68,14 @@ export class AppComponent {
     //element.setAttribute('state', 'init');
 
     script.onerror = () => console.error(`error loading ${configItem.path}`);
-    this.eventBus.registerClient(element);
+    this.eventBus.registerClient(element, configItem.recivers);
 
   }
 
   handleMessage(msg): void {
     //alert('shell received message: ' + msg.detail.title);
     this.cartLength++;
-    this.eventBus.setState(msg.detail.title + " : "+ "50");
+    this.eventBus.setState(msg.detail.imageUrl + " || " + msg.detail.title + " || "+ msg.detail.price);
     console.log('shell received message: ', msg.detail);
   }
 

@@ -24,7 +24,8 @@ export class AppComponent {
 
     /* this will be called once user select a book for adding into the cart */
     this.eventEmiter.data.subscribe(data => {
-        this.message.emit(data);
+      const dto = {imageUrl:data.image, title:data.title, price:data.price};
+      this.message.emit(dto);
     })
 
     this.router.initialNavigation(); // Manually triggering initial navigation for @angular/elements ?

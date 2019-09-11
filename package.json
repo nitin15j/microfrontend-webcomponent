@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "live-server dist/microfrontend-webcomponent",
-    "build": "npm run build:microfrontend-webcomponent && npm run build:clients",
+    "build": "npm run build:microfrontend-webcomponent && npm run build:clients && node custom-build-script.js",
     "build:clients": "npm run build:team-home && npm run build:team-movies && npm run build:team-books && npm run build:team-shopping-cart",
     "build:team-home": "ng build --prod --project team-home --output-hashing none --vendor-chunk false --output-path dist/microfrontend-webcomponent/team-home",
     "build:team-movies": "ng build --prod --project team-movies --output-hashing none --vendor-chunk false --output-path dist/microfrontend-webcomponent/team-movies",
