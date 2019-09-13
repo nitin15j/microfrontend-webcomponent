@@ -276,7 +276,7 @@
           //"builder": "@angular-devkit/build-angular:browser",
           
           "options": {
-            "customWebpackConfig": { "path": "projects/team-movies/extra-webpack.config.js",
+            "customWebpackConfig": { "path": "projects/team-books/extra-webpack.config.js",
               "mergeStrategies": { "externals": "replace" }},
             "outputPath": "dist/team-books",
             "index": "projects/team-books/src/index.html",
@@ -402,7 +402,7 @@
           //"builder": "@angular-devkit/build-angular:browser",
           
           "options": {
-            "customWebpackConfig": { "path": "projects/team-movies/extra-webpack.config.js",
+            "customWebpackConfig": { "path": "projects/team-shopping-cart/extra-webpack.config.js",
               "mergeStrategies": { "externals": "replace" }},
             "outputPath": "dist/team-shopping-cart",
             "index": "projects/team-shopping-cart/src/index.html",
@@ -527,7 +527,7 @@
           "builder": "@angular-builders/custom-webpack:browser",
           //"builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "customWebpackConfig": { "path": "projects/team-movies/extra-webpack.config.js",
+            "customWebpackConfig": { "path": "projects/team-home/extra-webpack.config.js",
               "mergeStrategies": { "externals": "replace" }},
             "outputPath": "dist/team-home",
             "index": "projects/team-home/src/index.html",
