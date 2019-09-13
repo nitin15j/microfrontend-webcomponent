@@ -146,8 +146,11 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-builders/custom-webpack:browser",
+          //"builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "customWebpackConfig": { "path": "projects/team-movies/extra-webpack.config.js",
+              "mergeStrategies": { "externals": "replace" }},
             "outputPath": "dist/team-movies",
             "index": "projects/team-movies/src/index.html",
             "main": "projects/team-movies/src/main.ts",
@@ -269,8 +272,12 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-builders/custom-webpack:browser",
+          //"builder": "@angular-devkit/build-angular:browser",
+          
           "options": {
+            "customWebpackConfig": { "path": "projects/team-movies/extra-webpack.config.js",
+              "mergeStrategies": { "externals": "replace" }},
             "outputPath": "dist/team-books",
             "index": "projects/team-books/src/index.html",
             "main": "projects/team-books/src/main.ts",
@@ -391,8 +398,12 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-builders/custom-webpack:browser",
+          //"builder": "@angular-devkit/build-angular:browser",
+          
           "options": {
+            "customWebpackConfig": { "path": "projects/team-movies/extra-webpack.config.js",
+              "mergeStrategies": { "externals": "replace" }},
             "outputPath": "dist/team-shopping-cart",
             "index": "projects/team-shopping-cart/src/index.html",
             "main": "projects/team-shopping-cart/src/main.ts",
@@ -513,8 +524,11 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-builders/custom-webpack:browser",
+          //"builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "customWebpackConfig": { "path": "projects/team-movies/extra-webpack.config.js",
+              "mergeStrategies": { "externals": "replace" }},
             "outputPath": "dist/team-home",
             "index": "projects/team-home/src/index.html",
             "main": "projects/team-home/src/main.ts",
