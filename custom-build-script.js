@@ -13,7 +13,7 @@ const concat = require('concat');
   //await fs.copyFile('./dist/microfrontend-webcomponent/team-home/styles.css', './dist/microfrontend-webcomponent/team-home/styles.css')
   //await fs.copy('./dist/microfrontend-webcomponent/team-home/assets/', 'sub-project-a/assets/' )
 
-  /*
+
   
   const teamMoviesFiles = [
     './dist/microfrontend-webcomponent/team-movies/runtime.js',
@@ -49,6 +49,6 @@ const concat = require('concat');
   await concat(teamShoppingCartFiles, './dist/microfrontend-webcomponent/team-shopping-cart/shopping-cart.js');
   //await fs.copyFile('./dist/microfrontend-webcomponent/team-shopping-cart/styles.css', './dist/microfrontend-webcomponent/team-shopping-cart/styles.css')
   //await fs.copy('./dist/microfrontend-webcomponent/team-shopping-cart/assets/', 'team-shopping-cart/assets/' )
-*/
+
 
 })()
