@@ -1,5 +1,5 @@
 import {
-Component,OnInit, Input,} from "@angular/core";
+Component,OnInit, Input, Output, EventEmitter,} from "@angular/core";
    
   @Component({
     selector: "app-navbar",
@@ -9,6 +9,11 @@ Component,OnInit, Input,} from "@angular/core";
   export class NavbarComponent implements OnInit {
    @Input()
    noOfItemsInCart;
+  
+   counter =0;
+
+   @Output()
+   appToToggle = new EventEmitter();
 
     constructor(
     ) {
@@ -16,6 +21,23 @@ Component,OnInit, Input,} from "@angular/core";
     }
   
     ngOnInit() { }
+
+    menuClicked($event)
+    {
+      //const appName = String($event.currentTarget.value).trim();
+      if(this.counter > 4)
+      {
+        this.appToToggle.emit('movies/movie');
+        return "#/movies/movie";
+      }
+      else
+      {
+        this.counter++;
+      }
+
+    }
+
+   
    
   }
   

@@ -1,37 +1,40 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { EventBusService } from './event-bus.service';
+import { Router } from '@angular/router';
+import { LocationStrategy, PathLocationStrategy, Location } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  providers: [Location, {provide: LocationStrategy, useClass: PathLocationStrategy}]
 })
 export class AppComponent {
   title = 'microfrontend-webcomponent';
   cartLength:any;
 
-  constructor(private eventBus: EventBusService) {}
+  constructor(private eventBus: EventBusService, private location:Location) {}
 
   config = {
-    "team-home": {
+    "home": {
       loaded: false,
       path: 'team-home/home.js',
       element: 'team-home',
       recivers:[]
     },
-    "team-movies": {
+    "movies": {
       loaded: false,
       path: 'team-movies/movies.js',
       element: 'team-movies',
       recivers:['team-shopping-cart']
     },
-    "team-books": {
+    "books": {
       loaded: false,
       path: 'team-books/books.js',
       element: 'team-books',
       recivers:['team-shopping-cart']
     },
-    "team-shopping-cart": {
+    "shopping-cart": {
       loaded: false,
       path: 'team-shopping-cart/shopping-cart.js',
       element: 'team-shopping-cart',
@@ -42,10 +45,10 @@ export class AppComponent {
 
   ngOnInit() {
     this.cartLength = 0;
-    this.load('team-home');
-    this.load('team-movies');
-    this.load('team-books');
-    this.load('team-shopping-cart');
+    this.load('home');
+    this.load('movies');
+    this.load('books');
+    this.load('shopping-cart');
   }
 
   load(name: string): void {
@@ -63,12 +66,36 @@ export class AppComponent {
     const element: HTMLElement = document.createElement(configItem.element);
     content.appendChild(element);
 
+    //this.router.navigateByUrl(path);
 
+    configItem.loaded = true;
     element.addEventListener('message', msg => this.handleMessage(msg));
     //element.setAttribute('state', 'init');
 
     script.onerror = () => console.error(`error loading ${configItem.path}`);
     this.eventBus.registerClient(element, configItem.recivers);
+
+  }
+
+
+  toggleApp(appName)
+  {
+    
+    const appNameLC = appName.split("/")[0];
+    const path = appName;
+    const configItem:any = this.config[appNameLC];
+    //this.location.go(`#/${path}/`);
+    if (configItem.loaded)
+    {
+      //this.location.replaceState(`/${path}/`); 
+      //this.location.go(`#/${path}/`);
+      //this.router.navigateByUrl(`/${path}/`)
+      //this.router.routerLink
+    }
+    else
+    {
+      this.load(appNameLC);
+    }
 
   }
 

@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { HomeComponent } from '../../projects/team-home/src/app/pages/home.component';
-import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [

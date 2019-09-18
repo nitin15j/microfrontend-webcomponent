@@ -24,7 +24,7 @@ export class AppComponent {
 
     this.router.initialNavigation(); // Manually triggering initial navigation for @angular/elements ?
     
-      this.router.navigate(['/shopping-cart/cart']);
+    //this.router.navigate(['/shopping-cart/cart']);
 
   }
 }
