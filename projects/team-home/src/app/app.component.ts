@@ -23,7 +23,7 @@ export class AppComponent {
 
     this.router.initialNavigation(); // Manually triggering initial navigation for @angular/elements ?
     
-    this.router.navigate(['/home/']);
+    //this.router.navigate(['/home/']);
   
   }
 }
