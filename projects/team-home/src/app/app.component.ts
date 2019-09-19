@@ -21,7 +21,7 @@ export class AppComponent {
 
   ngOnInit() {
 
-    this.router.initialNavigation(); // Manually triggering initial navigation for @angular/elements ?
+    this.router.initialNavigation();
     
     //this.router.navigate(['/home/']);
   

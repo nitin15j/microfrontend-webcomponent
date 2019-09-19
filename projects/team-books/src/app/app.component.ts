@@ -28,7 +28,7 @@ export class AppComponent {
       this.message.emit(dto);
     })
 
-    this.router.initialNavigation(); // Manually triggering initial navigation for @angular/elements ?
+    this.router.initialNavigation();
     
     //this.router.navigate(['/books/book']);
   
