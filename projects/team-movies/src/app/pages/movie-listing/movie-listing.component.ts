@@ -31,7 +31,7 @@ export class MovieListingComponent implements OnInit {
       });
 
       this.movieList = data.movies;
-
+      /*
       const uniqueMovieYearSet = new Set();
       const uniqueMovieLanguage = new Set();
       const uniqueMovieCountry = new Set();
@@ -51,6 +51,8 @@ export class MovieListingComponent implements OnInit {
       this.moviePublishingYears = Array.from(uniqueMovieYearSet).sort();
       this.movieLanguages = Array.from(uniqueMovieLanguage).sort();
       this.movieCountry = Array.from(uniqueMovieCountry).sort();
+      */
+     
     });
   }
 

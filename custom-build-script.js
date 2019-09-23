@@ -13,7 +13,6 @@ const concat = require('concat');
   //await fs.copyFile('./dist/microfrontend-webcomponent/team-home/styles.css', './dist/microfrontend-webcomponent/team-home/styles.css')
   //await fs.copy('./dist/microfrontend-webcomponent/team-home/assets/', 'sub-project-a/assets/' )
 
-
   
   const teamMoviesFiles = [
     './dist/microfrontend-webcomponent/team-movies/runtime.js',

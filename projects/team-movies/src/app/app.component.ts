@@ -24,7 +24,7 @@ export class AppComponent {
 
     /* this will be called once user select a movie for adding into the cart */
     this.eventEmiter.data.subscribe(data => {
-        const dto = {imageUrl:data.posterurl, title:data.title, price:data.price};
+        const dto = {imageUrl:data.poster, title:data.title, price:data.price};
         this.message.emit(dto);
     })
 
